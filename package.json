@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+    "build": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "dev-deploy": "onchange '**/*.{html,css,js}' -- git add . && git commit -m 'Auto deploy' && git push"
   },
   "author": "",
   "license": "ISC",
@@ -15,6 +16,7 @@
     "tailwindcss": "^4.1.11"
   },
   "devDependencies": {
-    "gh-pages": "^6.3.0"
+    "gh-pages": "^6.3.0",
+    "onchange": "^7.1.0"
   }
 }
