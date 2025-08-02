@@ -8,7 +8,13 @@
 </head>
 <body>
 
-  
+      <!-- custom Cursor -->
+
+      <div id="cursor" class="hidden fixed top-0 left-0 w-[120px] h-[120px] pointer-events-none z-[9999] mix-blend-difference">
+    <svg width="120" height="120">
+      <circle cx="60" cy="60" r="58" fill="#f7f8fa"></circle>
+    </svg>
+  </div>
   
     
       <!-- Nav Bar -->
@@ -50,7 +56,8 @@
       <!-- Nav Bar Ends -->
 
 
-      
+
+
 
 
       <!-- Hero -->
@@ -473,8 +480,8 @@
           </div>
 
          <!-- step -->
-         <div class="w-full md:w-1/2 flex flex-col gap-20]">
-          w-full md:w-1/2 flex flex-col gap-20
+         <div class="w-full md:w-1/2 flex flex-col gap-20">
+          
           <span class="text-7xl font-primary">(01.)</span>
           <div>
           <h4 class="text-2xl mb-6">Your brand, built to resonate</h3>
@@ -484,16 +491,87 @@
 
           </div> <!--step container  -->
 
-      
-
-
-
 
          </div>
 
          </div>
 
       </section>
+
+
+    <!-- FAQ Section -->
+
+    <section class="p-3 md:p-6 bg-white">
+
+        <div class="grid grid-cols-12 gap-4 mb-40 ">
+
+          <!-- (CF® — 01) -->
+          
+        <div class="flex gap-2 col-span-12 lg:col-span-4">
+          <div class="h-3 w-3 bg-charcoal rounded-full mt-1.5"></div>
+          <p>SELECTED SERVICES <br> (CF® — 03)</p>
+        </div>
+
+        <!-- Hero Title -->
+
+        <h2 class="reveal-type col-span-12 lg:col-span-8 text-4xl md:text-5xl lg:text-6xl xl:text-8xl">Love a good conversation? So do I. Check out the FAQs below or feel free to book a quick chat if you still have questions.</h2>
+
+  
+
+        </div>
+
+
+        <div class="grid grid-cols-12 border-t border-primary py-10 gap-10">
+
+          <p class="col-span-12 lg:col-span-4 uppercase text-3xl">Our process and <br> capabilites include:</p>
+
+         <div class="col-span-12 lg:col-span-6 lg:col-start-5">
+        
+          <div class="my-10 space-y-4">
+
+          <!-- FAQ Item -->
+          <div class="faq-item border-b border-gray-300 pb-6">
+  <button class="faq-question w-full flex items-center justify-between text-left text-xl md:text-2xl cursor-pointer">
+    
+    <!-- Text Span: take remaining space, truncate if needed -->
+    <span class="flex-1 break-words">What services do you offer?</span>
+    
+    <!-- Icon Span: fixed size, prevent shrinking -->
+    <span class="faq-icon flex-shrink-0 ml-4 transition-transform duration-300">
+      <img src="assets/Plus.svg" alt="FAQ Reveal" class="h-4 w-4 md:h-8 md:w-8">
+    </span>
+
+  </button>
+
+  <!-- FAQ Answer -->
+  <div class="faq-answer overflow-hidden transition-all duration-500 ease-in-out text-gray-500 mt-4 text-xl md:text-2xl" style="height: 0;">
+    CollectiveForge is a creative studio focused on web, branding, and interactive experiences.
+  </div>
+</div>
+
+
+
+        
+
+        
+
+
+        
+
+
+        </div>  
+        
+    </div>
+
+    <!-- The image container that will be revealed on hover -->
+    <div class="hover-image-container">
+        <div class="hover-image"></div>
+    </div>
+
+        </div>
+
+
+    </section>
 
 
   </div>
