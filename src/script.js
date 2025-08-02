@@ -27,29 +27,6 @@ function toggleMenu() {
     }
   }
 
-// cards
-
-// gsap.registerPlugin(ScrollTrigger);
-
-// const cards = document.querySelectorAll(".project-card");
-
-// cards.forEach((card, index) => {
-//   if (index === 0) return; // Skip first card – already in place
-
-//   gsap.fromTo(card,
-//     { yPercent: 100 },
-//     {
-//       yPercent: 0,
-//       ease: "none",
-//       scrollTrigger: {
-//         trigger: ".projects-wrapper",
-//         start: () => `top+=${window.innerHeight * (index - 1)} top`,
-//         end: () => `top+=${window.innerHeight * index} top`,
-//         scrub: true
-//       }
-//     }
-//   );
-// });
 
 
 
@@ -121,15 +98,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Gsap heading animation
-
-       gsap.registerPlugin(ScrollTrigger)
-
-        const splitTypes = document.querySelectorAll('.reveal-type')
-
-        splitTypes.forEach((char,i) => {
-
-            const text = new SplitType(char, { types: 'chars'})
-
-            console.log.apply(text);
-                    })
-            
