@@ -124,31 +124,5 @@
         }
   
 
-/* FAQ Reveal */
 
-const faqItems = document.querySelectorAll('.faq-item');
 
-  faqItems.forEach(item => {
-    const questionBtn = item.querySelector('.faq-question');
-    const answer = item.querySelector('.faq-answer');
-    const icon = item.querySelector('.faq-icon');
-
-    questionBtn.addEventListener('click', () => {
-      const isOpen = answer.classList.contains('max-h-0');
-
-      // Close all other answers (Optional Accordion behavior)
-      faqItems.forEach(i => {
-        i.querySelector('.faq-answer').classList.add('max-h-0', 'overflow-hidden');
-        i.querySelector('.faq-icon').style.transform = 'rotate(0deg)';
-      });
-
-      if (isOpen) {
-        answer.classList.remove('max-h-0', 'overflow-hidden');
-        answer.classList.add('max-h-[200px]'); // Adjust height as needed
-        icon.style.transform = 'rotate(45deg)'; // '+' turns to arrow
-      } else {
-        answer.classList.add('max-h-0', 'overflow-hidden');
-        icon.style.transform = 'rotate(0deg)';
-      }
-    });
-  });

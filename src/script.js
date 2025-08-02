@@ -133,30 +133,28 @@ const cursor = document.getElementById('cursor');
 
     // FAQ
 
-     const faqItems = document.querySelectorAll('.faq-item');
+   const faqItems = document.querySelectorAll('.faq-item');
 
 faqItems.forEach(item => {
   const questionBtn = item.querySelector('.faq-question');
   const answer = item.querySelector('.faq-answer');
-  const icon = item.querySelector('.faq-icon');
+  const icon = item.querySelector('.faq-icon img') || item.querySelector('img'); // fallback if no faq-icon class
 
   questionBtn.addEventListener('click', () => {
     const isOpen = answer.style.height !== '0px' && answer.style.height !== '';
 
-    // Close all answers
+    // Close all FAQs first (optional)
     faqItems.forEach(i => {
-      const otherAnswer = i.querySelector('.faq-answer');
-      const otherIcon = i.querySelector('.faq-icon');
-      otherAnswer.style.height = '0px';
-      otherIcon.style.transform = 'rotate(0deg)';
+      i.querySelector('.faq-answer').style.height = '0';
+      i.querySelector('img').style.transform = 'rotate(0deg)';
     });
 
     if (!isOpen) {
-      answer.style.height = answer.scrollHeight + 'px';  // Auto height based on content
+      // Open the clicked FAQ
+      const answerHeight = answer.scrollHeight;
+      answer.style.height = `${answerHeight}px`;
       icon.style.transform = 'rotate(45deg)';
-    } else {
-      answer.style.height = '0px';
-      icon.style.transform = 'rotate(0deg)';
     }
   });
 });
+
