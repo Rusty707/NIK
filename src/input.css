@@ -1,0 +1,121 @@
+@import url("https://use.typekit.net/vcg7dou.css");
+
+@font-face {
+  font-family: roobert-medium;
+  src: url("../assets/fonts/RoobertMedium.ttf") format("truetype");
+
+}
+
+@font-face {
+  font-family: roobert-regular;
+  src: url("../assets/fonts/RoobertRegular.ttf") format("truetype");
+  
+}
+
+@font-face {
+  font-family: roobert-bold;
+  src: url("../assets/fonts/RoobertSemiBold.ttf") format("truetype");
+  
+}
+
+
+
+
+@import "tailwindcss";
+
+ html {
+    scroll-behavior: smooth;
+  }
+
+@layer base {
+
+ 
+ 
+  body {
+    @apply bg-primary;
+    font-family: roobert-medium;
+    line-height: 1.15;
+
+  }
+
+  p {
+    font-size: 1.25rem;
+  }
+
+  a {
+    
+    font-size: 1.25rem;
+  }
+
+  h2 {
+    font-family: roobert-medium;
+    
+  }
+
+
+}
+
+
+
+
+/* input.css or globals.css */
+@theme {
+
+ --breakpoint-sm: 640px;
+--breakpoint-md: 768px;
+--breakpoint-lg: 1024px;
+--breakpoint-xl: 1280px;
+  --color-primary: #F1F1E4;
+  --color-charcoal: #1e1e1e;
+  --font-primary: "headline-gothic-atf", sans-serif;
+  --font-secondary: "roobert-regular", "sans-serif";
+}
+
+
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 30s linear infinite;
+  }
+
+}
+
+.hover-reveal-item {
+            cursor: pointer;
+            position: relative;
+        }
+        /* The container for the image that appears on hover */
+        .hover-image-container {
+            position: fixed; /* Position relative to the viewport */
+            top: 0;
+            left: 0;
+            pointer-events: none; /* Allows mouse events to pass through */
+            z-index: 999;
+            width: 25vw; /* Width of the image container */
+            height: 25vw; /* Height of the image container */
+            overflow: hidden;
+            /* Initially hidden and scaled down */
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0.8);
+            will-change: transform, opacity; /* Performance optimization */
+        }
+        /* The image itself */
+        .hover-image {
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            /* Slightly zoomed in for a parallax effect on move */
+            transform: scale(1.2);
+            will-change: transform; /* Performance optimization */
+        }
+  
+
