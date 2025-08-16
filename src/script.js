@@ -28,6 +28,26 @@ function toggleMenu() {
   }
 
 
+  // Nav bar Hide and Show
+
+   let lastScrollY = window.scrollY;
+  const nav = document.querySelector('nav');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > lastScrollY) {
+      // Scrolling Down — Hide Navbar
+      nav.classList.add('nav-hidden');
+    } else {
+      // Scrolling Up — Show Navbar
+      nav.classList.remove('nav-hidden');
+    }
+    lastScrollY = window.scrollY;
+  });
+
+
+
+
+
 
 
 
@@ -156,5 +176,75 @@ faqItems.forEach(item => {
       icon.style.transform = 'rotate(45deg)';
     }
   });
+});
+
+
+// Gsap scroll
+
+ gsap.registerPlugin(ScrollTrigger);
+
+  function initHorizontalScroll() {
+    const track = document.querySelector(".steps-track");
+    const section = document.querySelector(".scroll-horizontal-section");
+    if (!track || !section) return;
+
+    const trackWidth = track.scrollWidth;
+    const viewportWidth = window.innerWidth;
+    const scrollDistance = trackWidth - viewportWidth;
+
+    // Only animate if content is wider than screen
+    if (scrollDistance <= 0) return;
+
+    ScrollTrigger.getAll().forEach(t => t.kill());
+
+    gsap.to(track, {
+      x: -scrollDistance,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "bottom bottom",
+        end: `+=${scrollDistance}`,
+        pin: true,
+        scrub: 1,
+        anticipatePin: 1,
+      }
+    });
+  }
+
+  window.addEventListener("load", initHorizontalScroll);
+  window.addEventListener("resize", initHorizontalScroll);
+
+
+  // Split text gsap
+
+gsap.registerPlugin(SplitText, ScrollTrigger);
+
+document.addEventListener("DOMContentLoaded", () => {
+  console.log('DOM Loaded');
+  
+  const triggerEl = document.querySelector('.split-trigger');
+  const splitEl = document.querySelector('.split-type');
+
+  console.log('Trigger Element:', triggerEl);
+  console.log('Split Element:', splitEl);
+
+ScrollTrigger.create({
+  trigger: ".split-trigger",
+  start: "top bottom",  // <--- Triggers when section touches bottom of viewport
+  once: true,
+  markers: true,
+  onEnter: () => {
+    console.log('ScrollTrigger Fired');
+    const split = new SplitText(".split-type", { type: "chars, words" });
+
+    gsap.from(split.words, {
+      delay: 0.5,
+      y: 100,
+      autoAlpha: 0,
+      stagger: 0.05,
+      duration: 0.5,
+      ease: "power2.out"
+    });
+  }
 });
 

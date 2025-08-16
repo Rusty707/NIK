@@ -30,17 +30,16 @@
 
 @layer base {
 
- 
+
  
   body {
     @apply bg-primary;
     font-family: roobert-medium;
     line-height: 1.15;
-
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: clamp(1.25rem, 5vw, 1.5rem);
   }
 
   a {
@@ -58,7 +57,23 @@
 
 
 
-/* Custom Cursor */
+/* Fluid TYpograhy */
+
+@layer utilities {
+
+  .fluid-h1{
+    font-size: clamp(2.5rem, 6vw, 6rem);
+    line-height: 1.1;
+  }
+
+  .fluid-h2{
+    font-size: clamp(3rem, 5vw, 5rem);
+    line-height: 1.1;
+  }
+  .h2-secondary{
+    font-size: clamp(3rem, 5vw, 5rem);
+  }
+}
 
 
 
@@ -70,7 +85,7 @@
 --breakpoint-md: 768px;
 --breakpoint-lg: 1024px;
 --breakpoint-xl: 1280px;
-  --color-primary: #F1F1E4;
+  --color-primary: #e9e9e9;
   --color-charcoal: #1e1e1e;
   --font-primary: "headline-gothic-atf", sans-serif;
   --font-secondary: "roobert-regular", "sans-serif";
@@ -92,6 +107,9 @@
   }
 
 }
+
+
+/* CUstom Css here */
 
 .hover-reveal-item {
             cursor: pointer;
@@ -125,4 +143,13 @@
   
 
 
+
+.nav-hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+nav {
+  transition: transform 0.3s ease-in-out;
+}
 
