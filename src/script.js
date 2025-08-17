@@ -179,40 +179,43 @@ faqItems.forEach(item => {
 });
 
 
-// Gsap scroll
+// Gsap horizontal scroll
 
- gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger);
 
-  function initHorizontalScroll() {
-    const track = document.querySelector(".steps-track");
-    const section = document.querySelector(".scroll-horizontal-section");
-    if (!track || !section) return;
+function initHorizontalScroll() {
+  const track = document.querySelector(".steps-track");
+  const section = document.querySelector(".scroll-horizontal-section");
+  if (!track || !section) return;
 
-    const trackWidth = track.scrollWidth;
-    const viewportWidth = window.innerWidth;
-    const scrollDistance = trackWidth - viewportWidth;
+  const trackWidth = track.scrollWidth;
+  const viewportWidth = window.innerWidth;
+  const scrollDistance = trackWidth - viewportWidth;
 
-    // Only animate if content is wider than screen
-    if (scrollDistance <= 0) return;
+  if (scrollDistance <= 0) return;
 
-    ScrollTrigger.getAll().forEach(t => t.kill());
+  // Kill old triggers (in case of resize)
+  ScrollTrigger.getAll().forEach(t => t.kill());
 
-    gsap.to(track, {
-      x: -scrollDistance,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "bottom bottom",
-        end: `+=${scrollDistance}`,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-      }
-    });
-  }
+  gsap.to(track, {
+    x: -scrollDistance,
+    ease: "none",
+    scrollTrigger: {
+      trigger: section,
+      start: "top top",
+      end: `+=${trackWidth + viewportWidth / 2}`, // breathing room
+      pin: true,
+      scrub: 1,
+      anticipatePin: 1,
+    }
+  });
+}
 
-  window.addEventListener("load", initHorizontalScroll);
-  window.addEventListener("resize", initHorizontalScroll);
+window.addEventListener("load", initHorizontalScroll);
+window.addEventListener("resize", initHorizontalScroll);
+
+
+
 
 
   // Split text gsap
